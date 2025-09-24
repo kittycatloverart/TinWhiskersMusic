@@ -11,9 +11,6 @@
       text-align: center;
       background-color: #f9f9f9;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
     .logo {
       margin-top: 40px;
@@ -37,18 +34,16 @@
     .button-container img:hover {
       transform: scale(1.05);
     }
-    footer {
-      margin-top: auto;
-      padding: 20px;
-      background-color: #f1f1f1;
+    .email-row {
+      margin: 20px auto 40px;
     }
-    footer a img {
-      width: 80px;
+    .email-row img {
+      width: 100px;
       height: auto;
       cursor: pointer;
       transition: transform 0.2s;
     }
-    footer a img:hover {
+    .email-row img:hover {
       transform: scale(1.05);
     }
 
@@ -61,8 +56,8 @@
       .button-container img {
         width: 90px; /* smaller for phones */
       }
-      footer a img {
-        width: 70px;
+      .email-row img {
+        width: 90px;
       }
     }
   </style>
@@ -93,11 +88,11 @@
     </a>
   </div>
 
-  <!-- Footer with email -->
-  <footer>
-    <a href="mailto:tinwhiskersband@gmail.com">
+  <!-- Email row under the main buttons -->
+  <div class="email-row">
+    <a href="mailto:tinwhiskers918@gmail.com">
       <img src="Email.png" alt="Email">
     </a>
-  </footer>
+  </div>
 </body>
 </html>
