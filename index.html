@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+    }
+    .logo {
+      margin-top: 40px;
+      max-width: 300px;
+      width: 80%;
+      height: auto;
+    }
+    .button-container {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .button-container img {
+      width: 150px;  /* adjust size as needed */
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .button-container img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Main Logo -->
+  <img src="logo.png" alt="Main Logo" class="logo">
+
+  <!-- Button PNGs -->
+  <div class="button-container">
+    <a href="#"><img src="button1.png" alt="Button 1"></a>
+    <a href="#"><img src="button2.png" alt="Button 2"></a>
+    <a href="#"><img src="button3.png" alt="Button 3"></a>
+    <a href="#"><img src="button4.png" alt="Button 4"></a>
+    <a href="#"><img src="button5.png" alt="Button 5"></a>
+    <a href="#"><img src="button6.png" alt="Button 6"></a>
+  </div>
+</body>
+</html
