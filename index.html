@@ -14,8 +14,8 @@
     }
     .logo {
       margin-top: 40px;
-      max-width: 500px; /* increased size */
-      width: 90%;       /* stays responsive */
+      max-width: 500px; /* logo size */
+      width: 90%;
       height: auto;
     }
     .button-container {
@@ -23,10 +23,10 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 20px;
-      max-width: 600px; /* keeps buttons nicely centered */
+      max-width: 400px; /* keeps buttons centered */
     }
     .button-container img {
-      width: 150px;  /* adjust size as needed */
+      width: 100px;  /* smaller buttons */
       height: auto;
       cursor: pointer;
       transition: transform 0.2s;
@@ -34,13 +34,24 @@
     .button-container img:hover {
       transform: scale(1.05);
     }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      .button-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 per row on phones */
+        max-width: 250px;
+      }
+      .button-container img {
+        width: 90px; /* even smaller for phones */
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Main Logo -->
   <img src="Tin Whiskers Logo_Black.png" alt="Tin Whiskers Logo" class="logo">
 
-  <!-- Button PNGs in 2 rows of 3 -->
+  <!-- Button PNGs -->
   <div class="button-container">
     <a href="https://www.instagram.com/tinwhiskers/" target="_blank">
       <img src="INSTA.png" alt="Instagram">
