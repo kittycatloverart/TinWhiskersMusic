@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TIN WHISKERS</title>
+  <title>Static Page</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       text-align: center;
-      background-color: #f9f9f9;
       font-family: Arial, sans-serif;
+      background: url("Tin Whiskers_Social_16Aug24-05430.jpg") no-repeat center center fixed;
+      background-size: cover;
     }
     .logo {
       margin-top: 40px;
-      max-width: 500px; /* logo size */
+      max-width: 500px;
       width: 90%;
       height: auto;
     }
@@ -23,10 +24,10 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 20px;
-      max-width: 400px; /* keeps buttons centered */
+      max-width: 400px;
     }
     .button-container img {
-      width: 100px;  /* smaller buttons */
+      width: 100px;
       height: auto;
       cursor: pointer;
       transition: transform 0.2s;
@@ -50,11 +51,11 @@
     /* Mobile responsiveness */
     @media (max-width: 600px) {
       .button-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 per row on phones */
+        grid-template-columns: repeat(2, 1fr);
         max-width: 250px;
       }
       .button-container img {
-        width: 90px; /* smaller for phones */
+        width: 90px;
       }
       .email-row img {
         width: 90px;
@@ -88,9 +89,9 @@
     </a>
   </div>
 
-  <!-- Email row under the main buttons -->
+  <!-- Email row -->
   <div class="email-row">
-    <a href="mailto:tinwhiskers918@gmail.com">
+    <a href="mailto:tinwhiskersband@gmail.com">
       <img src="Email.png" alt="Email">
     </a>
   </div>
