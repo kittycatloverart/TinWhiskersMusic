@@ -19,11 +19,11 @@
       height: auto;
     }
     .button-container {
-      margin-top: 40px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      max-width: 600px; /* keeps buttons nicely centered */
     }
     .button-container img {
       width: 150px;  /* adjust size as needed */
@@ -40,7 +40,7 @@
   <!-- Main Logo -->
   <img src="Tin Whiskers Logo_Black.png" alt="Tin Whiskers Logo" class="logo">
 
-  <!-- Button PNGs -->
+  <!-- Button PNGs in 2 rows of 3 -->
   <div class="button-container">
     <a href="#"><img src="button1.png" alt="Button 1"></a>
     <a href="#"><img src="button2.png" alt="Button 2"></a>
