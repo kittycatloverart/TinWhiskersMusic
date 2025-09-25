@@ -14,27 +14,14 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: flex-end; /* pushes buttons toward bottom */
       text-align: center;
-      position: relative;
-    }
-
-    /* Logo fixed to the background */
-    .logo-background {
-      position: absolute;
-      top: 0; /* position relative to background */
-      left: 50%;
-      transform: translateX(-50%);
-      height: 240px; /* fixed vertical size */
-      width: auto;
-      z-index: 0; /* behind buttons */
     }
 
     .content-wrapper {
-      margin-bottom: 120px; /* buttons slightly above bottom */
+      margin-bottom: 120px; /* fine-tuned vertical placement */
       position: relative;
-      z-index: 1; /* above background logo */
-      padding-top: 20px; /* optional spacing from top */
+      z-index: 1;
     }
 
     .button-container {
@@ -73,9 +60,6 @@
       .content-wrapper {
         margin-bottom: 80px;
       }
-      .logo-background {
-        height: 180px;
-      }
       .button-container {
         grid-template-columns: repeat(2, 1fr);
         max-width: 250px;
@@ -90,9 +74,6 @@
   </style>
 </head>
 <body>
-  <!-- Logo as part of background -->
-  <img src="Tin Whiskers Logo_Black.png" alt="Tin Whiskers Logo" class="logo-background">
-
   <div class="content-wrapper">
     <!-- Button PNGs -->
     <div class="button-container">
