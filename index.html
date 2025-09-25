@@ -16,6 +16,7 @@
       flex-direction: column;
       justify-content: flex-end;
       text-align: center;
+      overflow-x: hidden;
     }
 
     .content-wrapper {
@@ -55,6 +56,23 @@
       transform: scale(1.05);
     }
 
+    /* Emoji styling */
+    .emoji {
+      position: fixed;
+      font-size: 30px;
+      top: -50px;
+      z-index: 2;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
     /* Mobile responsiveness */
     @media (max-width: 600px) {
       .content-wrapper {
@@ -74,6 +92,10 @@
   </style>
 </head>
 <body>
+
+  <!-- Emoji container -->
+  <div id="emoji-container"></div>
+
   <div class="content-wrapper">
     <!-- Button PNGs -->
     <div class="button-container">
@@ -104,5 +126,28 @@
       </a>
     </div>
   </div>
+
+  <script>
+    const emojiContainer = document.getElementById('emoji-container');
+    const emojis = ['🎵', '🎸', '🪕']; // only music emojis
+
+    function createEmoji() {
+      const emoji = document.createElement('div');
+      emoji.classList.add('emoji');
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = Math.random() * 100 + 'vw';
+      emoji.style.fontSize = 20 + Math.random() * 30 + 'px';
+      emoji.style.animationDuration = 4 + Math.random() * 4 + 's';
+      emojiContainer.appendChild(emoji);
+
+      // remove after falling
+      setTimeout(() => {
+        emoji.remove();
+      }, parseFloat(emoji.style.animationDuration) * 1000);
+    }
+
+    // continuously generate emojis
+    setInterval(createEmoji, 300);
+  </script>
 </body>
 </html>
