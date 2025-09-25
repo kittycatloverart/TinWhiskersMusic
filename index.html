@@ -9,34 +9,31 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background: url("IMG_1561.jpeg") no-repeat center center fixed;
+      background: url("IMG_1561.jpeg") no-repeat top center fixed;
       background-size: cover;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end; /* pushes content toward bottom */
+      justify-content: flex-end;
       text-align: center;
     }
 
     .content-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 5vh; /* small spacing from bottom, scales with screen height */
-      width: 100%;
-      box-sizing: border-box;
+      margin-bottom: 120px; /* buttons slightly above bottom */
+      position: relative;
+      z-index: 1;
     }
 
     .button-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       grid-gap: 20px;
       max-width: 400px;
-      width: 90%;
+      margin: 0 auto 20px;
     }
 
     .button-container img {
-      width: 100%;
+      width: 100px;
       height: auto;
       cursor: pointer;
       transition: transform 0.2s;
@@ -46,11 +43,10 @@
     }
 
     .email-row {
-      margin-top: 20px;
-      width: 100px;
+      margin: 0 auto 20px;
     }
     .email-row img {
-      width: 100%;
+      width: 100px;
       height: auto;
       cursor: pointer;
       transition: transform 0.2s;
@@ -59,20 +55,27 @@
       transform: scale(1.05);
     }
 
-    /* Landscape and smaller screens */
-    @media (max-width: 600px), (orientation: landscape) {
-      .button-container {
-        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-        max-width: 300px;
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      .content-wrapper {
+        margin-bottom: 80px;
       }
-      .email-row {
-        width: 80px;
+      .button-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 250px;
+      }
+      .button-container img {
+        width: 90px;
+      }
+      .email-row img {
+        width: 90px;
       }
     }
   </style>
 </head>
 <body>
   <div class="content-wrapper">
+    <!-- Button PNGs -->
     <div class="button-container">
       <a href="https://www.instagram.com/tinwhiskers/" target="_blank">
         <img src="INSTA.png" alt="Instagram">
@@ -94,6 +97,7 @@
       </a>
     </div>
 
+    <!-- Email row -->
     <div class="email-row">
       <a href="mailto:tinwhiskersband@gmail.com">
         <img src="Email.png" alt="Email">
