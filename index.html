@@ -14,12 +14,25 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end; /* pushes content toward bottom */
+      justify-content: flex-end;
       text-align: center;
     }
 
+    /* Logo at top, never below 240px */
+    .logo {
+      position: sticky;
+      top: 240px; /* minimum distance from top */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: auto;
+      z-index: 2;
+    }
+
     .content-wrapper {
-      margin-bottom: 120px; /* fine-tuned vertical placement */
+      margin-bottom: 120px;
+      position: relative;
+      z-index: 1;
     }
 
     .button-container {
@@ -56,7 +69,10 @@
     /* Mobile responsiveness */
     @media (max-width: 600px) {
       .content-wrapper {
-        margin-bottom: 80px; /* slightly higher on mobile screens */
+        margin-bottom: 80px;
+      }
+      .logo {
+        width: 180px;
       }
       .button-container {
         grid-template-columns: repeat(2, 1fr);
@@ -72,6 +88,9 @@
   </style>
 </head>
 <body>
+  <!-- Logo -->
+  <img src="Tin Whiskers Logo_Black.png" alt="Tin Whiskers Logo" class="logo">
+
   <div class="content-wrapper">
     <!-- Button PNGs -->
     <div class="button-container">
