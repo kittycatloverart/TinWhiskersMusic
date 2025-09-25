@@ -19,7 +19,7 @@
     }
 
     .content-wrapper {
-      margin-bottom: 80px; /* moves buttons slightly higher from bottom */
+      margin-bottom: 120px; /* fine-tuned vertical placement */
     }
 
     .button-container {
@@ -41,7 +41,7 @@
     }
 
     .email-row {
-      margin: 0 auto 0; /* slightly above very bottom */
+      margin: 0 auto 20px;
     }
     .email-row img {
       width: 100px;
@@ -55,6 +55,9 @@
 
     /* Mobile responsiveness */
     @media (max-width: 600px) {
+      .content-wrapper {
+        margin-bottom: 80px; /* slightly higher on mobile screens */
+      }
       .button-container {
         grid-template-columns: repeat(2, 1fr);
         max-width: 250px;
