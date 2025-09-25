@@ -5,16 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TINWHISKERS</title>
   <style>
-    body {
+    body, html {
       margin: 0;
       padding: 0;
-      text-align: center;
+      height: 100%;
       font-family: Arial, sans-serif;
-      background: url("IMG_1561.jpeg") no-repeat top center fixed;
-      background-size: cover; /* fills screen, crops bottom if needed */
+      text-align: center;
     }
+
+    /* Background image with overlay */
+    body {
+      background: url("IMG_1561.jpeg") no-repeat top center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3); /* semi-transparent dark overlay */
+      z-index: 0;
+    }
+
+    /* Ensure buttons sit above overlay */
+    .button-container, .email-row {
+      position: relative;
+      z-index: 1;
+    }
+
     .button-container {
-      margin: 80px auto 40px; /* space from top */
+      margin: 150px auto 40px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 20px;
@@ -29,6 +53,7 @@
     .button-container img:hover {
       transform: scale(1.05);
     }
+
     .email-row {
       margin: 20px auto 40px;
     }
@@ -47,6 +72,7 @@
       .button-container {
         grid-template-columns: repeat(2, 1fr);
         max-width: 250px;
+        margin-top: 100px;
       }
       .button-container img {
         width: 90px;
