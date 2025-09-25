@@ -18,21 +18,22 @@
       text-align: center;
     }
 
-    /* Logo at top, never below 240px */
+    /* Logo fixed at very top, 240px height */
     .logo {
-      position: sticky;
-      top: 240px; /* minimum distance from top */
+      position: fixed;
+      top: 0; /* stick to top of viewport */
       left: 50%;
       transform: translateX(-50%);
-      width: 250px;
-      height: auto;
+      height: 240px; /* fixed vertical size */
+      width: auto;
       z-index: 2;
     }
 
     .content-wrapper {
-      margin-bottom: 120px;
+      margin-bottom: 120px; /* buttons slightly above bottom */
       position: relative;
       z-index: 1;
+      padding-top: 260px; /* space for logo so it doesn't overlap buttons */
     }
 
     .button-container {
@@ -70,9 +71,10 @@
     @media (max-width: 600px) {
       .content-wrapper {
         margin-bottom: 80px;
+        padding-top: 200px; /* adjust for smaller screen */
       }
       .logo {
-        width: 180px;
+        height: 180px; /* smaller logo on mobile */
       }
       .button-container {
         grid-template-columns: repeat(2, 1fr);
