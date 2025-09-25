@@ -11,16 +11,15 @@
       font-family: Arial, sans-serif;
       background: url("IMG_1561.jpeg") no-repeat top center fixed;
       background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; /* pushes content toward bottom */
       text-align: center;
     }
 
-    /* Container to hold all content and control vertical position */
     .content-wrapper {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      min-height: 100vh;
-      padding-top: 65%; /* pushes buttons downward; adjust % to fine-tune */
+      margin-bottom: 80px; /* moves buttons slightly higher from bottom */
     }
 
     .button-container {
@@ -30,6 +29,7 @@
       max-width: 400px;
       margin: 0 auto 20px;
     }
+
     .button-container img {
       width: 100px;
       height: auto;
@@ -41,7 +41,7 @@
     }
 
     .email-row {
-      margin: 0 auto 60px;
+      margin: 0 auto 0; /* slightly above very bottom */
     }
     .email-row img {
       width: 100px;
@@ -55,9 +55,6 @@
 
     /* Mobile responsiveness */
     @media (max-width: 600px) {
-      .content-wrapper {
-        padding-top: 55%; /* slightly higher on smaller screens */
-      }
       .button-container {
         grid-template-columns: repeat(2, 1fr);
         max-width: 250px;
