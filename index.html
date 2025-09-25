@@ -13,9 +13,14 @@
       background-size: cover;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end; /* pushes content toward the bottom */
+      justify-content: flex-end; /* push content toward bottom */
       min-height: 100vh;
       text-align: center;
+    }
+
+    /* Spacer to push buttons slightly higher */
+    .spacer {
+      flex: 1; /* takes up space above buttons */
     }
 
     .button-container {
@@ -23,7 +28,7 @@
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 20px;
       max-width: 400px;
-      margin: 0 auto 20px; /* bottom spacing */
+      margin: 0 auto 20px;
     }
     .button-container img {
       width: 100px;
@@ -36,7 +41,7 @@
     }
 
     .email-row {
-      margin: 0 auto 60px; /* further bottom spacing */
+      margin: 0 auto 60px; /* spacing below buttons */
     }
     .email-row img {
       width: 100px;
@@ -64,6 +69,9 @@
   </style>
 </head>
 <body>
+  <!-- Spacer to push buttons slightly higher -->
+  <div class="spacer"></div>
+
   <!-- Button PNGs -->
   <div class="button-container">
     <a href="https://www.instagram.com/tinwhiskers/" target="_blank">
