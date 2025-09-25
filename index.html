@@ -11,16 +11,16 @@
       font-family: Arial, sans-serif;
       background: url("IMG_1561.jpeg") no-repeat top center fixed;
       background-size: cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end; /* push content toward bottom */
-      min-height: 100vh;
       text-align: center;
     }
 
-    /* Spacer to push buttons slightly higher */
-    .spacer {
-      flex: 1; /* takes up space above buttons */
+    /* Container to hold all content and control vertical position */
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding-top: 65%; /* pushes buttons downward; adjust % to fine-tune */
     }
 
     .button-container {
@@ -41,7 +41,7 @@
     }
 
     .email-row {
-      margin: 0 auto 60px; /* spacing below buttons */
+      margin: 0 auto 60px;
     }
     .email-row img {
       width: 100px;
@@ -55,6 +55,9 @@
 
     /* Mobile responsiveness */
     @media (max-width: 600px) {
+      .content-wrapper {
+        padding-top: 55%; /* slightly higher on smaller screens */
+      }
       .button-container {
         grid-template-columns: repeat(2, 1fr);
         max-width: 250px;
@@ -69,36 +72,35 @@
   </style>
 </head>
 <body>
-  <!-- Spacer to push buttons slightly higher -->
-  <div class="spacer"></div>
+  <div class="content-wrapper">
+    <!-- Button PNGs -->
+    <div class="button-container">
+      <a href="https://www.instagram.com/tinwhiskers/" target="_blank">
+        <img src="INSTA.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/tinwhiskers/" target="_blank">
+        <img src="Facebook.png" alt="Facebook">
+      </a>
+      <a href="https://tinwhiskers.bigcartel.com/" target="_blank">
+        <img src="Merch.png" alt="Merch">
+      </a>
+      <a href="https://music.apple.com/us/artist/tin-whiskers/1755838474" target="_blank">
+        <img src="Apple.png" alt="Apple Music">
+      </a>
+      <a href="https://open.spotify.com/artist/5tZo4tUQDE9SayiUWm80Vu?si=XqzhWccoRg--m4babyPBAA" target="_blank">
+        <img src="Spotify.png" alt="Spotify">
+      </a>
+      <a href="https://youtube.com/@tinwhiskers5905?si=lv3CkGhvhsgJdwYy" target="_blank">
+        <img src="Youtube.png" alt="YouTube">
+      </a>
+    </div>
 
-  <!-- Button PNGs -->
-  <div class="button-container">
-    <a href="https://www.instagram.com/tinwhiskers/" target="_blank">
-      <img src="INSTA.png" alt="Instagram">
-    </a>
-    <a href="https://www.facebook.com/tinwhiskers/" target="_blank">
-      <img src="Facebook.png" alt="Facebook">
-    </a>
-    <a href="https://tinwhiskers.bigcartel.com/" target="_blank">
-      <img src="Merch.png" alt="Merch">
-    </a>
-    <a href="https://music.apple.com/us/artist/tin-whiskers/1755838474" target="_blank">
-      <img src="Apple.png" alt="Apple Music">
-    </a>
-    <a href="https://open.spotify.com/artist/5tZo4tUQDE9SayiUWm80Vu?si=XqzhWccoRg--m4babyPBAA" target="_blank">
-      <img src="Spotify.png" alt="Spotify">
-    </a>
-    <a href="https://youtube.com/@tinwhiskers5905?si=lv3CkGhvhsgJdwYy" target="_blank">
-      <img src="Youtube.png" alt="YouTube">
-    </a>
-  </div>
-
-  <!-- Email row -->
-  <div class="email-row">
-    <a href="mailto:tinwhiskersband@gmail.com">
-      <img src="Email.png" alt="Email">
-    </a>
+    <!-- Email row -->
+    <div class="email-row">
+      <a href="mailto:tinwhiskersband@gmail.com">
+        <img src="Email.png" alt="Email">
+      </a>
+    </div>
   </div>
 </body>
 </html>
