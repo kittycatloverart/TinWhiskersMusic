@@ -52,14 +52,12 @@
       position: fixed;
       top: -50px;
       pointer-events: none;
-      animation-name: fall;
-      animation-timing-function: linear;
+      animation: fall linear forwards;
     }
 
     @keyframes fall {
-      to {
-        transform: translateY(110vh);
-      }
+      0% { transform: translateY(-50px) rotate(var(--start-rotation)); }
+      100% { transform: translateY(110vh) rotate(var(--end-rotation)); }
     }
 
     #falling-container {
@@ -124,33 +122,26 @@
       element.style.width = 60 + Math.random() * 40 + 'px';
       element.style.height = 'auto';
 
-      // Random starting rotation
-      const startRotation = Math.floor(Math.random() * 360);
-      const spinAmount = (Math.random() < 0.5 ? -1 : 1) * (90 + Math.random() * 180);
+      // Random rotation values
+      const startRotation = Math.floor(Math.random() * 360) + 'deg';
+      const endRotation = Math.floor(Math.random() * 360) + 'deg';
+      element.style.setProperty('--start-rotation', startRotation);
+      element.style.setProperty('--end-rotation', endRotation);
+
+      // Random horizontal position
+      element.style.left = Math.random() * 100 + 'vw';
+
+      // Random fall duration
+      const duration = 4 + Math.random() * 4;
+      element.style.animationDuration = duration + 's';
 
       element.classList.add('falling');
-      element.style.left = Math.random() * 100 + 'vw';
-      element.style.animationDuration = 4 + Math.random() * 4 + 's';
-      element.style.transform = `rotate(${startRotation}deg)`;
-
-      // Add spinning animation
-      element.animate(
-        [
-          { transform: `rotate(${startRotation}deg)` },
-          { transform: `rotate(${startRotation + spinAmount}deg)` }
-        ],
-        {
-          duration: parseFloat(element.style.animationDuration) * 1000,
-          iterations: 1,
-          easing: 'linear'
-        }
-      );
-
       fallingContainer.appendChild(element);
 
+      // Remove after falling
       setTimeout(() => {
         element.remove();
-      }, parseFloat(element.style.animationDuration) * 1000);
+      }, duration * 1000);
     }
 
     // Faster spawning: every 250ms
