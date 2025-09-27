@@ -25,6 +25,8 @@
       text-align: center;
       margin-bottom: 50px;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
 
     .button-row {
@@ -43,18 +45,6 @@
 
     .button-row a img:hover {
       transform: scale(1.1);
-    }
-
-    .email-link {
-      margin-top: 15px;
-      font-size: 16px;
-    }
-
-    .email-link a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     }
 
     /* Falling animation */
@@ -83,15 +73,21 @@
       z-index: 0;
     }
 
-    .container {
-      position: relative;
-      z-index: 1;
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      .button-row a img {
+        width: 50px;
+        height: 50px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Falling images container -->
   <div id="falling-container"></div>
 
+  <!-- Buttons container -->
   <div class="container">
     <!-- Top row -->
     <div class="button-row">
@@ -107,42 +103,49 @@
       <a href="https://youtube.com/@tinwhiskers5905?si=lv3CkGhvhsgJdwYy" target="_blank"><img src="Youtube.png" alt="YouTube"></a>
     </div>
 
-    <!-- Email -->
-    <div class="email-link">
-      <a href="mailto:tinwhiskersband@gmail.com">tinwhiskersband@gmail.com</a>
+    <!-- Centered Email button -->
+    <div class="button-row">
+      <a href="mailto:tinwhiskersband@gmail.com"><img src="Email.png" alt="Email"></a>
     </div>
   </div>
 
+  <!-- Falling images script -->
   <script>
     const fallingContainer = document.getElementById('falling-container');
 
     const items = [
-      { type: 'text', value: 'Nails In The Alley' },
-      { type: 'text', value: 'Out now!' },
       { type: 'image', value: 'IMG_0574.jpeg' }
     ];
 
     function createFallingItem() {
-      const item = items[Math.floor(Math.random() * items.length)];
-      let element;
+      const item = items[0];
+      const element = document.createElement('img');
+      element.src = item.value;
+      element.style.width = 60 + Math.random() * 40 + 'px';
+      element.style.height = 'auto';
 
-      if (item.type === 'text') {
-        element = document.createElement('div');
-        element.innerText = item.value;
-        element.style.color = 'white';
-        element.style.fontSize = 22 + Math.random() * 18 + 'px';
-        element.style.fontWeight = 'bold';
-        element.style.textShadow = '2px 2px 4px rgba(0,0,0,0.7)';
-      } else if (item.type === 'image') {
-        element = document.createElement('img');
-        element.src = item.value;
-        element.style.width = 60 + Math.random() * 40 + 'px';
-        element.style.height = 'auto';
-      }
+      // Random starting rotation
+      const startRotation = Math.floor(Math.random() * 360);
+      const spinAmount = (Math.random() < 0.5 ? -1 : 1) * (90 + Math.random() * 180);
 
       element.classList.add('falling');
       element.style.left = Math.random() * 100 + 'vw';
       element.style.animationDuration = 4 + Math.random() * 4 + 's';
+      element.style.transform = `rotate(${startRotation}deg)`;
+
+      // Add spinning animation
+      element.animate(
+        [
+          { transform: `rotate(${startRotation}deg)` },
+          { transform: `rotate(${startRotation + spinAmount}deg)` }
+        ],
+        {
+          duration: parseFloat(element.style.animationDuration) * 1000,
+          iterations: 1,
+          easing: 'linear'
+        }
+      );
+
       fallingContainer.appendChild(element);
 
       setTimeout(() => {
@@ -150,7 +153,8 @@
       }, parseFloat(element.style.animationDuration) * 1000);
     }
 
-    setInterval(createFallingItem, 500);
+    // Faster spawning: every 250ms
+    setInterval(createFallingItem, 250);
   </script>
 </body>
 </html>
